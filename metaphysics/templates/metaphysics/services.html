@@ -1,0 +1,124 @@
+{% extends "base.html" %} {% block title %}Xidmətlər{% endblock title %} 
+{% block body %}
+
+<!-- hs Services Title Start -->
+<div class="hs_indx_title_main_wrapper">
+  <div class="hs_title_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 full_width">
+        <div class="hs_indx_title_left_wrapper">
+          <h2>Xidmətlər</h2>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 full_width">
+        <div class="hs_indx_title_right_wrapper">
+          <ul>
+            <li><a href="{% url 'main-page' %}">Ana Səhifə</a> &nbsp;&nbsp;&nbsp;></li>
+            <li>Xidmətlər</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- hs Services Title End -->
+
+<!-- hs service wrapper Start -->
+<div class="hs_service_main_wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="hs_about_heading_main_wrapper">
+          <div class="hs_about_heading_wrapper">
+            <h2>Xidmətlərimiz</h2>
+            <h4><span>&nbsp;</span></h4>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-area ptb-100">
+        <div class="container">
+          <div class="row">
+            {% for item in services %}
+            <div class="col-md-4 col-lg-3 meta-col-6">
+              <div class="hs_service_main_box_wrapper">
+                <div class="hs_service_icon_wrapper">
+                  <img src="{{item.icon.url}}" alt="{{item.title}}" />
+                  <div class="btc_step_overlay"></div>
+                </div>
+                <div class="hs_service_icon_cont_wrapper">
+                  <div class="hs_service_icon_cont_wrapper_title">
+                    <a href="{% url 'service-detail' item.slug %}">
+                      <h2>{{item.title}}</h2>
+                    </a>
+                  </div>
+                  <div class="hs_service_icon_cont_wrapper_text">
+                    <p>{{item.subtitle}}</p>
+                  </div>
+                  <h5>
+                    <a href="{% url 'service-detail' item.slug %}"
+                      >ətraflı <i class="fa fa-long-arrow-right"></i
+                    ></a>
+                  </h5>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container -->
+      </div>
+      <!--/.portfolio-area-->
+      <div class="pagination-area">
+        <nav>
+            <ul class="page-numbers">
+                {% if is_paginated %}
+                    {% if page_obj.has_previous %}
+                        <li>
+                            <a class="page-number next" href="?page={{ page_obj.previous_page_number }}">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <span class="page-number next disabled">
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </span>
+                        </li>
+                    {% endif %}
+    
+                    {% for page_num in page_obj.paginator.page_range %}
+                        {% if page_num == page_obj.number %}
+                            <li>
+                                <a class="page-number active" href="?page={{ page_num }}">{{ page_num }}</a>
+                            </li>
+                        {% else %}
+                            <li>
+                                <a class="page-number" href="?page={{ page_num }}">{{ page_num }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+    
+                    {% if page_obj.has_next %}
+                        <li>
+                            <a class="page-number next" href="?page={{ page_obj.next_page_number }}">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <span class="page-number next disabled">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </span>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+    </div>
+  </div>
+</div>
+<!-- hs service wrapper End -->
+{% endblock body %}

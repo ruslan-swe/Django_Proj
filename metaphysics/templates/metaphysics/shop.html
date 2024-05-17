@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% load discount_filters %}
+{% block title %}Məhsullar{% endblock title %} {% block body %}
+<!-- hs About Title Start -->
+<div class="hs_indx_title_main_wrapper">
+  <div class="hs_title_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 full_width">
+        <div class="hs_indx_title_left_wrapper">
+          <h2>Məhsullar</h2>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 full_width">
+        <div class="hs_indx_title_right_wrapper">
+          <ul>
+            <li><a href="{% url "main-page"%}">Ana Səhifə</a> &nbsp;&nbsp;&nbsp;></li>
+            <li>Məhsullar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- hs About Title End -->
+<!-- hs sidebar Start -->
+<div class="hs_blog_categories_main_wrapper shop_wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="hs_blog_left_sidebar_main_wrapper">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="hs_about_heading_main_wrapper">
+                <div class="hs_about_heading_wrapper">
+                  <h2>Məhsullarımız</h2>
+                  <h4><span>&nbsp;</span></h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="hs_shop_tabs_cont_sec_wrapper">
+                <div class="tab-content">
+                  <div id="home" class="tab-pane fade in active">
+                    <div class="row">
+                      {% for product in products %}
+                      <div class="col-lg-3 col-md-4 meta-col-6">
+                        <div class="hs_shop_prodt_main_box">
+                          <div class="hs_shop_prodt_img_wrapper">
+                            <img
+                              src="{{product.main_image.url}}"
+                              alt="{{product.name}}"
+                            />
+                          </div>
+                          <div class="hs_shop_prodt_img_cont_wrapper">
+                            <div class="product-title">
+                              <h2>
+                                <a
+                                  href="{% url 'product-detail' product.slug %}"
+                                  >{{product.name}}</a
+                                >
+                              </h2>
+                            </div>
+                            <div class="product-text">
+                              <a
+                                href="{% url 'product-detail' product.slug %}"
+                              >
+                                <p>{{product.about}}</p>
+                              </a>
+                            </div>
+                            {% if product.discount %}
+                            <h3><del>{{ product.price }}₼</del>&nbsp; {{ product.price|calculate_discounted_price:product.discount|floatformat:2 }}₼</h3>
+                            {% else %}
+                            <h3>{{ product.price }}₼</h3>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pagination-area">
+      <nav>
+          <ul class="page-numbers">
+              {% if is_paginated %}
+                  {% if page_obj.has_previous %}
+                      <li>
+                          <a class="page-number next" href="?page={{ page_obj.previous_page_number }}">
+                              <i class="fa-solid fa-arrow-left"></i>
+                          </a>
+                      </li>
+                  {% else %}
+                      <li>
+                          <span class="page-number next disabled">
+                              <i class="fa-solid fa-arrow-left"></i>
+                          </span>
+                      </li>
+                  {% endif %}
+  
+                  {% for page_num in page_obj.paginator.page_range %}
+                      {% if page_num == page_obj.number %}
+                          <li>
+                              <a class="page-number active" href="?page={{ page_num }}">{{ page_num }}</a>
+                          </li>
+                      {% else %}
+                          <li>
+                              <a class="page-number" href="?page={{ page_num }}">{{ page_num }}</a>
+                          </li>
+                      {% endif %}
+                  {% endfor %}
+  
+                  {% if page_obj.has_next %}
+                      <li>
+                          <a class="page-number next" href="?page={{ page_obj.next_page_number }}">
+                              <i class="fa-solid fa-arrow-right"></i>
+                          </a>
+                      </li>
+                  {% else %}
+                      <li>
+                          <span class="page-number next disabled">
+                              <i class="fa-solid fa-arrow-right"></i>
+                          </span>
+                      </li>
+                  {% endif %}
+              {% endif %}
+          </ul>
+      </nav>
+  </div>
+  
+  </div>
+</div>
+<!-- hs sidebar End -->
+{% endblock body %}

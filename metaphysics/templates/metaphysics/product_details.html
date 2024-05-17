@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load discount_filters %}
+{% block title %}{{product.name}}{% endblock title %}
+
+{% block body %}
+  <!-- hs About Title Start -->
+  <div class="hs_indx_title_main_wrapper">
+    <div class="hs_title_img_overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 full_width">
+          <div class="hs_indx_title_left_wrapper">
+            <h2>Məhsul Haqqında</h2>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 full_width">
+          <div class="hs_indx_title_right_wrapper">
+            <ul>
+              <li><a href="{% url "main-page"%}">ana səhifə</a> &nbsp;&nbsp;&nbsp;></li>
+              <li>Məhsul Haqqında</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- hs About Title End -->
+  <!-- hs shop single prod slider Start -->
+  <div class="hs_shop_single_prod_slider_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12">
+                <div class="video_img_section_wrapper details-slider">
+                    <!-- Main Swiper -->
+                    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+                            {% for image in product.images.all %}
+                                <div class="swiper-slide">
+                                    <img src="{{ image.image.url }}" alt="Product Image" />
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <!-- Thumbnail Swiper -->
+                    <div class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            {% for image in product.images.all %}
+                                <div class="swiper-slide">
+                                    <img src="{{ image.image.url }}" alt="Thumbnail Image" />
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="hs_shop_single_border_Wrapper">
+                    <div class="hs_shop_single_right_heading_wrapper">
+                        <h2>{{ product.name }}</h2>
+                    </div>
+                </div>
+                <div class="hs_shop_single_cont_wrapper">
+                    <div class="price_box">
+                        <span class="current_price">{{ product.price|calculate_discounted_price:product.discount|floatformat:2 }}</span>
+                        <span class="old_price">{{ product.price }}</span>
+                    </div>
+                    <div class="service-desc">
+                        <h5>{{ product.description }}</h5>
+                    </div>
+                    {% if product.phone %}
+                    <div class="details_cart_btn cart-whatsapp-btn">
+                        <a href="https://api.whatsapp.com/send?phone={{ product.phone|slice:"1:" }}" target="_blank">
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  <!-- hs shop single prod slider End -->
+  <!-- hs popular prodt wrapper Start -->
+  <div class="hs_shop_pp_main_wrapper" style="background: url(./images/content/testi_bg.jpg)">
+    <div class="container">
+      <div class="row">
+        <div class="hs_sign_heading_wrapper">
+          <div class="hs_about_heading_main_wrapper">
+            <div class="hs_about_heading_wrapper">
+              <h2>Oxşar Məhsullar</h2>
+              <h4><span></span></h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="hs_shop_single_slider_wrapper">
+            <div class="owl-carousel owl-theme">
+              {% for item in products %}
+              <div class="item">
+                <div class="hs_shop_pp_main_box_wrapper">
+                  <div class="hs_shop_prodt_img_wrapper">
+                    <img src="{{item.main_image.url}}" alt="{{item.name}}" />
+                  </div>
+                  <div class="hs_shop_prodt_img_cont_wrapper">
+                    <div class="shop_prodt_title">
+                      <h2><a href="{% url 'product-detail' item.slug %}">{{item.name}}</a></h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {%endfor%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- hs popular prodt wrapper End -->
+{% endblock body %}

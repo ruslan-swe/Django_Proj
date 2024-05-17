@@ -1,0 +1,130 @@
+{% extends "base.html" %} {% block title %}Haqqımızda{% endblock title %} 
+{% block body %}
+<!-- hs About Title Start -->
+<div class="hs_indx_title_main_wrapper">
+  <div class="hs_title_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 full_width">
+        <div class="hs_indx_title_left_wrapper">
+          <h2>Haqqımızda</h2>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 full_width">
+        <div class="hs_indx_title_right_wrapper">
+          <ul>
+            <li><a href="{% url "main-page"%}">Ana Səhifə</a> &nbsp;&nbsp;&nbsp;></li>
+            <li>Haqqımızda</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- hs About Title End -->
+<!-- hs about ind wrapper Start -->
+{% if about_info %}
+<div class="hs_about_indx_main_wrapper about_page_wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="hs_about_left_img_wrapper">
+          <img src="{{ about_info.top_image.url}}" alt="{{about_info.title}}" />
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="hs_about_heading_main_wrapper">
+          <div class="hs_about_heading_wrapper">
+            <h2>{{ about_info.title}}</h2>
+            <h4><span>&nbsp;</span></h4>
+          </div>
+        </div>
+        <div class="hs_about_right_cont_wrapper">
+          <p>{{about_info.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- hs about ind wrapper End -->
+
+<!-- hs about video wrapper Start -->
+<div
+  class="hs_about_video_main_wrapper"
+  style="background-image: url({{about_info.top_image.url}})"
+>
+  <div class="hs_about_video_img_overlay"></div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="hs_about_video_icon_wrapper">
+        <a class="popup-youtube" href="{{about_info.video_url}}">
+          <i class="fa fa-play"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{%endif%}
+<!-- hs about video wrapper End -->
+
+<!-- hs about progress wrapper Start -->
+<div class="hs_about_progress_main_wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="hs_about_progress_img_left">
+          <h2>Bürclərimizin tərəqqisi</h2>
+          <h4><span>&nbsp;</span></h4>
+          <img
+            src="{{about_info.bottom_image.url}}"
+            class="img-responsive"
+            alt="{{about_info.title}}"
+          />
+        </div>
+      </div>
+      {% if faqs %}
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="hs_about_progress_cont_left">
+          <h2>Tez-tez verilən suallar</h2>
+          <h4><span>&nbsp;</span></h4>
+          <div class="accordionFifteen">
+            <div class="panel-group" id="accordionFifteenLeft" role="tablist">
+              {% for faq in faqs %}
+              <div class="panel panel-default truck_pannel">
+                <div class="panel-heading desktop">
+                  <h4 class="panel-title">
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#accordionFifteenLeft"
+                      href="#collapse{{ forloop.counter }}"
+                      aria-expanded="false"
+                      class="collapsed" 
+                    >
+                      {{ faq.question }}
+                    </a>
+                  </h4>
+                </div>
+                <div
+                  id="collapse{{ forloop.counter }}"
+                  class="panel-collapse collapse"
+                  aria-expanded="false"
+                  role="tabpanel">
+                  <div class="panel-body">
+                    <div class="panel_cont">
+                      <p>{{ faq.answer }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {%endif%}
+      </div>
+    </div>
+  </div>
+  <!-- hs about progress wrapper End -->
+  {% endblock body %}
+</div>

@@ -1,0 +1,893 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+  <!-- hs Slider Start -->
+  <div class="v-2_home_slider slider-area">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner" role="listbox">
+        {% for slider in sliders %}
+        <div class="item {% if forloop.first %}active{% endif %}">
+          <div class="carousel-captions caption-1" style="background: url({{slider.image.url}}); background-size: cover;">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8 col-md-8 meta-col-6">
+                  <div class="content">
+                    <h1 data-animation="animated bounceInLeft">{{ slider.title}}</h1>
+                    <h2 data-animation="animated zoomInDown">
+                    </h2>
+                    <p data-animation="animated bounceInUp">
+                      {{slider.subtitle}}
+                    </p>
+                    <div class="hs_effect_btn">
+                      <ul>
+                        <li data-animation="animated flipInX">
+                          <a href="#" class="hs_btn_hover">ətraflı</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="clear"></div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 meta-col-6 hidden-xs">
+                  <div class="content_tabs">
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 ">
+                        <div class="hs_slider_right_tabs_wrapper hs_slider_right_tabs_wrapper2"
+                          data-animation="animated bounceInRight hs_slider_tab_tow">
+                          <div class="hs_slider_tabs_icon_wrapper">
+                            <i class="fa-solid fa-moon"></i>
+                          </div>
+                          <div class="hs_slider_tabs_icon_cont_wrapper">
+                            <ul>
+                              <li>
+                                <a class="hs_tabs_btn">astrologiya</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 col-md-12">
+                        <div class="hs_slider_right_tabs_wrapper hs_slider_right_tabs_wrapper2 right_tab"
+                          data-animation="animated bounceInLeft hs_slider_tab_three">
+                          <div class="hs_slider_tabs_icon_wrapper">
+                            <i class="flaticon-avatar"></i>
+                          </div>
+                          <div class="hs_slider_tabs_icon_cont_wrapper">
+                            <ul>
+                              <li>
+                                <a class="hs_tabs_btn">ekstrasens</a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-lg-12 col-md-12">
+                        <div class="slider_bottom_tab">
+                          <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                              <div class="hs_slider_right_tabs_wrapper hs_slider_right_tabs_wrapper2"
+                                data-animation="animated bounceInRight hs_slider_tab_four">
+                                <div class="hs_slider_tabs_icon_wrapper">
+                                  <i class="fa-solid fa-wand-sparkles"></i>
+                                </div>
+                                <div class="hs_slider_tabs_icon_cont_wrapper">
+                                  <ul>
+                                    <li>
+                                      <a class="hs_tabs_btn">magiya</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                              <div class="hs_slider_right_tabs_wrapper hs_slider_right_tabs_wrapper2"
+                                data-animation="animated bounceInLeft hs_slider_tab_fifth">
+                                <div class="hs_slider_tabs_icon_wrapper">
+                                  <i class="flaticon-coins"></i>
+                                </div>
+                                <div class="hs_slider_tabs_icon_cont_wrapper">
+                                  <ul>
+                                    <li>
+                                      <a class="hs_tabs_btn">Numerologiya</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        <div class="carousel-nevigation">
+          <a class="prev" href="#carousel-example-generic" role="button" data-slide="prev">
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
+          <a class="next" href="#carousel-example-generic" role="button" data-slide="next">
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- hs Slider End -->
+  <!-- hs about ind wrapper Start -->
+  {% if about_info %}
+  <div class="hs_about_indx_main_wrapper v-2_about_index">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 meta-col-6">
+          <div class="hs_about_left_img_wrapper">
+            <img src="{{ about_info.top_image.url }}" alt="{{about_info.title}}" />
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 meta-col-6">
+          <div class="hs_about_heading_main_wrapper">
+            <div class="hs_about_heading_wrapper">
+              <h2>{{about_info.title}}</h2>
+              <h4><span>&nbsp;</span></h4>
+            </div>
+          </div>
+          <div class="hs_about_right_cont_wrapper">
+            <p>
+              {{about_info.description}}
+            </p>
+
+            <div class="hs_effect_btn hs_about_btn">
+              <ul>
+                <li><a href="{% url 'about-page' %}" class="hs_btn_hover">Ətraflı</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <!-- hs about ind wrapper End -->
+  <!-- hs sign wrapper Start -->
+  <!-- hs sign wrapper Start -->
+  <div class="hs_sign_main_wrapper">
+    <div class="container">
+      <div class="hs_sign_heading_wrapper">
+        <div class="hs_about_heading_main_wrapper">
+          <div class="hs_about_heading_wrapper">
+            <h2>Bürclər</h2>
+            <h4><span></span></h4>
+          </div>
+        </div>
+      </div>
+      <div class="hs_sign_center_wrapper visible-xs visible-sm">
+        <div class="hs_cycle_main_wrapper">
+          <div class="hs_cycle_img">
+            <img src="images/content/cycle.jpg" alt="circle_img" />
+            <span class="pulse"></span>
+            <div class="hs_tab_shap1">
+              <a>
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p>
+                  <i class="flaticon-taurus-astrological-sign-symbol"></i>
+                </p>
+              </a>
+            </div>
+            <div class="hs_tab_shap2">
+              <a>
+                <svg version="1.1" id="Layer_2" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-aries-sign"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap3">
+              <a>
+                <svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-libra"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap4">
+              <a>
+                <svg version="1.1" id="Layer_4" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-scorpio"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap5">
+              <a>
+                <svg version="1.1" id="Layer_5" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-leo"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap6">
+              <a>
+                <svg version="1.1" id="Layer_6" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-capricorn"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap7">
+              <a>
+                <svg version="1.1" id="Layer_7" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-aquarius-zodiac-sign-symbol"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap8">
+              <a>
+                <svg version="1.1" id="Layer_8" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-gemini-zodiac-sign-symbol"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap9">
+              <a>
+                <svg version="1.1" id="Layer_9" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-virgo-astrological-symbol-sign"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap10">
+              <a>
+                <svg version="1.1" id="Layer_10" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-leo"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap11">
+              <a>
+                <svg version="1.1" id="Layer_11" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-cancer"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap12">
+              <a>
+                <svg version="1.1" id="Layer_12" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-gemini-zodiac-sign-symbol"></i></p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hs_sign_left_wrapper">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 meta-meta-col-6">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_border_wrapper1">
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-aries-sign"></i>
+              </div>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Qoç</a></li>
+                  <li>21 Mart - 20 Aprel</li>
+                </ul>
+              </div>
+              <span></span>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 meta-meta-col-6">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_left_tabs_border_wrapper2">
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-taurus-astrological-sign-symbol"></i>
+              </div>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Buğa</a></li>
+                  <li>21 Aprel - 20 May</li>
+                </ul>
+              </div>
+              <span></span>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 meta-meta-col-6">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_left_tabs_border_wrapper3">
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-gemini-zodiac-sign-symbol"></i>
+              </div>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Əkizlər</a></li>
+                  <li>21 May - 21 İyun</li>
+                </ul>
+              </div>
+              <span></span>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 meta-meta-col-6">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_left_tabs_border_wrapper4">
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-cancer"></i>
+              </div>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Xərçəng</a></li>
+                  <li>22 İyun - 22 İyul</li>
+                </ul>
+              </div>
+              <span></span>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 meta-meta-col-6">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_left_tabs_border_wrapper5">
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-leo"></i>
+              </div>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Şir</a></li>
+                  <li>23 İyul - 22 Avqust</li>
+                </ul>
+              </div>
+              <span></span>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 meta-meta-col-6">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_left_tabs_border_wrapper6">
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-virgo-astrological-symbol-sign"></i>
+              </div>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Qız</a></li>
+                  <li>23 Avqust - 22 Sentyabr</li>
+                </ul>
+              </div>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hs_sign_right_wrapper visible-xs">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 meta-meta-col-6">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_right_tabs_border_wrapper1">
+              <span></span>
+
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-libra"></i>
+              </div>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Tərəzi</a></li>
+                  <li>23 Sentyabr - 23 Oktyabr</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 meta-meta-col-6">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_right_tabs_border_wrapper2">
+              <span></span>
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-scorpio"></i>
+              </div>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Scorpio</a></li>
+                  <li>31 March - 12 October</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 meta-meta-col-6">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_right_tabs_border_wrapper3">
+              <span></span>
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-sagittarius-arrow-sign"></i>
+              </div>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Sagittarius</a></li>
+                  <li>31 March - 12 October</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 meta-meta-col-6">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_right_tabs_border_wrapper4">
+              <span></span>
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-capricorn"></i>
+              </div>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn"> Capricorn </a></li>
+                  <li>31 March - 12 October</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 meta-meta-col-6">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_right_tabs_border_wrapper5">
+              <span></span>
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-aquarius-zodiac-sign-symbol"></i>
+              </div>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn"> Aquarius </a></li>
+                  <li>31 March - 12 October</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12 col-meta-meta-col-6">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_right_tabs_border_wrapper6">
+              <span></span>
+
+              <div class="hs_slider_tabs_icon_wrapper sagit-icon">
+                <i class="flaticon-pisces-astrological-sign"></i>
+              </div>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Pisces </a></li>
+                  <li>31 March - 12 October</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hs_sign_center_wrapper hidden-sm hidden-xs">
+        <div class="hs_cycle_main_wrapper">
+          <div class="hs_cycle_img">
+            <img src="images/content/cycle.jpg" alt="circle_img" />
+            <span class="pulse"></span>
+            <div class="hs_tab_shap1">
+              <a>
+                <svg version="1.1" id="Layer_13" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p>
+                  <i class="flaticon-taurus-astrological-sign-symbol"></i>
+                </p>
+              </a>
+            </div>
+            <div class="hs_tab_shap2">
+              <a>
+                <svg version="1.1" id="Layer_14" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-aries-sign"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap3">
+              <a>
+                <svg version="1.1" id="Layer_15" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-libra"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap4">
+              <a>
+                <svg version="1.1" id="Layer_16" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-scorpio"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap5">
+              <a>
+                <svg version="1.1" id="Layer_17" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-sagittarius-arrow-sign"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap6">
+              <a>
+                <svg version="1.1" id="Layer_18" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-capricorn"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap7">
+              <a>
+                <svg version="1.1" id="Layer_19" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-aquarius-zodiac-sign-symbol"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap8">
+              <a>
+                <svg version="1.1" id="Layer_20" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-pisces-astrological-sign"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap9">
+              <a>
+                <svg version="1.1" id="Layer_21" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-virgo-astrological-symbol-sign"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap10">
+              <a>
+                <svg version="1.1" id="Layer_22" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-leo"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap11">
+              <a>
+                <svg version="1.1" id="Layer_23" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-cancer"></i></p>
+              </a>
+            </div>
+            <div class="hs_tab_shap12">
+              <a>
+                <svg version="1.1" id="Layer_24" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="68.811px" height="64.729px"
+                  viewBox="0 0 68.811 64.729" enable-background="new 0 0 68.811 64.729" xml:space="preserve">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M0,52.763c0,0,26.125,0.367,42.664,11.967l26.147-46.796
+							c0,0-30.278-18.234-68.054-17.929L0,52.763z" />
+                </svg>
+                <p><i class="flaticon-gemini-zodiac-sign-symbol"></i></p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hs_sign_right_wrapper hidden-xs">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_right_tabs_border_wrapper1">
+              <span></span>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Tərəzi</a></li>
+                  <li>23 Sentyabr - 23 Oktyabr</li>
+                </ul>
+              </div>
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-libra"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_right_tabs_border_wrapper2">
+              <span></span>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Əqrəb</a></li>
+                  <li>24 Oktyabr - 22 Noyabr</li>
+                </ul>
+              </div>
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-scorpio"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_right_tabs_border_wrapper3">
+              <span></span>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Oxatan</a></li>
+                  <li>23 Noyabr - 21 Dekabr</li>
+                </ul>
+              </div>
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-sagittarius-arrow-sign"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_right_tabs_border_wrapper4">
+              <span></span>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Oğlaq</a></li>
+                  <li>22 Dekabr - 20 Yanvar</li>
+                </ul>
+              </div>
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-capricorn"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_right_tabs_border_wrapper5">
+              <span></span>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Dolça</a></li>
+                  <li>21 Yanvar - 18 Fevral</li>
+                </ul>
+              </div>
+              <div class="hs_slider_tabs_icon_wrapper">
+                <i class="flaticon-aquarius-zodiac-sign-symbol"></i>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-12">
+            <div class="hs_sign_left_tabs_wrapper hs_sign_left_tabs_wrapper_2 hs_sign_right_tabs_border_wrapper6">
+              <span></span>
+              <div class="hs_slider_tabs_icon_cont_wrapper">
+                <ul>
+                  <li><a class="hs_tabs_btn">Balıq</a></li>
+                  <li>20 Fevral - 20 Mart</li>
+                </ul>
+              </div>
+              <div class="hs_slider_tabs_icon_wrapper sagit-icon">
+                <i class="flaticon-pisces-astrological-sign"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+  </div>
+  <!-- hs sign wrapper End -->
+  <!-- hs sign wrapper End -->
+
+  <!-- hs service wrapper Start -->
+  <div class="hs_service_main_wrapper v-2_service service_wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="hs_about_heading_main_wrapper">
+            <div class="hs_about_heading_wrapper">
+              <h2>Xidmətlərimiz</h2>
+              <h4><span>&nbsp;</span></h4>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-area ptb-100">
+          <div class="container">
+            <div class="row">
+              {% for service in services %}
+              <div class="col-md-4 col-lg-3 meta-col-6">
+                <div class="hs_service_main_box_wrapper index-service">
+                  <div class="hs_service_icon_wrapper">
+                    <img src="{{service.icon.url}}" alt="{{service.title}}" />
+                    <div class="btc_step_overlay"></div>
+                  </div>
+                  <div class="hs_service_icon_cont_wrapper">
+                    <div class="hs_service_icon_cont_wrapper_title">
+                      <a href="service-details.html">
+                        <h2>{{service.title}}</h2>
+                      </a>
+                    </div>
+                    <div class="hs_service_icon_cont_wrapper_text">
+                      <p>{{service.subtitle}}</p>
+                    </div>
+                    <h5>
+                      <a href="service-details.html">ətraflı <i class="fa fa-long-arrow-right"></i></a>
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="hs_effect_btn">
+                <ul>
+                  <li>
+                    <a href="{% url "services-page"%}" class="hs_btn_hover">daha çox</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- /.row -->
+          </div>
+          <!-- /.container -->
+        </div>
+        <!--/.portfolio-area-->
+      </div>
+    </div>
+  </div>
+  <!-- hs service wrapper End -->
+
+  <!-- hs about video wrapper Start -->
+  {{about_info.video_url}}
+  {% if about_info %}
+  <div class="hs_about_video_main_wrapper" style="background-image: url({{about_info.top_image.url}})">
+    <div class="hs_about_video_img_overlay"></div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="hs_about_video_icon_wrapper">
+          <a class="popup-youtube"
+            href="{{about_info.video_url}}">
+            <i class="fa fa-play"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  <!-- hs about video wrapper End -->
+
+  <!-- hs astrology team wrapper Start -->
+  {% if team_members %}
+  <div class="hs_astrology_team_main_wrapper v-2_astrology_team">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 col-md-12">
+          <div class="hs_about_heading_main_wrapper">
+            <div class="hs_about_heading_wrapper">
+              <h2>Komandamız</h2>
+              <h4><span>&nbsp;</span></h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+          <div class="hs_team_slider_wrapper">
+            <div class="owl-carousel owl-theme">
+              {% for member in team_members %}
+              <div class="item">
+                <div class="hs_astro_team_img_main_wrapper">
+                  <div class="hs_astro_img_wrapper">
+                    <img src="{{member.image.url}}" alt="{{member.first_name}}" />
+                  </div>
+                  <div class="hs_astro_img_cont_wrapper">
+                    <div class="hs_astro_img_inner_wrapper">
+                      <div class="team__member_name">
+                        <h2><a href="#">{{ member.first_name}} {{ member.last_name}}</a></h2>
+                      </div>
+                      <div class="about_team_member">
+                        <p>{{member.duty}}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {%endfor%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endif%}
+  <!-- hs astrology team wrapper End -->
+
+  {% if blogs %}
+  <!-- hs title wrapper Start -->
+  <div class="hs_title_main_wrapper v-2_title">
+    <div class="container">
+      <div class="col-lg-12 col-md-12 ">
+        <div class="hs_about_heading_main_wrapper">
+          <div class="hs_about_heading_wrapper">
+            <h2>Bloqlar</h2>
+            <h4><span>&nbsp;</span></h4>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        {% for blog in blogs %}
+        <div class="col-lg-4 col-md-4 meta-col-6">
+          <div class="hs_title_box_main_wrapper">
+            <div class="hs_title_img_wrapper">
+              <img src="{{blog.image.url}}" alt="{{blog.title}}" />
+            </div>
+            <div class="hs_title_img_cont_wrapper">
+              <div class="blog-title">
+                <h2><a href="blog.html">{{blog.title}}</a></h2>
+              </div>
+              <div class="blog-text">
+                <p>
+                  {{blog.subtitle}}
+                </p>
+              </div>
+              <h5>
+                <a href="blog.html">Ətraflı <i class="fa fa-long-arrow-right"></i></a>
+              </h5>
+            </div>
+          </div>
+        </div>
+        {%endfor%}
+      </div>
+      <div class="col-lg-12 col-md-12 ">
+        <div class="hs_effect_btn">
+          <ul>
+            <li>
+              <a href="{% url "blogs-page"%}" class="hs_btn_hover">daha çox</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%endif%}
+  <!-- hs title wrapper End -->
+{% endblock body %}

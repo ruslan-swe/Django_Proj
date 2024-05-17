@@ -1,0 +1,616 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %}{% endblock title %}</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="description" content="Jyotish" />
+    <meta name="keywords" content="Jyotish" />
+    <meta name="author" content="" />
+    <meta name="MobileOptimized" content="320" />
+    <!--start style -->
+    <link rel="stylesheet" href={% static "css/animate.css"%} />
+    <link rel="stylesheet" href={% static "css/bootstrap.min.css"%} />
+    <link rel="stylesheet" href={% static "css/font-awesome.css"%} />
+    <link rel="stylesheet" href={% static "css/fonts.css"%} />
+    <link rel="stylesheet" href={% static "css/flaticon.css"%} />
+    <link rel="stylesheet" type="text/css" href={% static "css/sign_flaticon.css"%} />
+    <link rel="stylesheet" href={% static "css/owl.carousel.css"%} />
+    <link rel="stylesheet" href={% static "css/owl.theme.default.css"%} />
+    <link rel="stylesheet" href={% static "css/magnific-popup.css"%} />
+    <link rel="stylesheet" href={% static "css/reset.css"%} />
+    <link rel="stylesheet" href={% static "css/datepicker.css"%} />
+    <link rel="stylesheet" href={% static "css/style.css"%} />
+    <link rel="stylesheet" href={% static "css/responsive.css"%} />
+    <!-- favicon links -->
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href={% static "images/header/metafizik-logo.png"%}
+    />
+    <!-- Font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Fancybox -->
+    <link rel="stylesheet" href={% static "css/jquery.fancybox.min.css"%} />
+  </head>
+
+  <body>
+    <!-- main_header_wrapper Start -->
+    <div class="main_header_wrapper">
+      <!-- hs Navigation Start -->
+      <div class="hs_navigation_header_wrapper">
+        <div class="container">
+          <div class="row">
+            {% if contact_details %}
+            <div class="header-left">
+              <div
+                class="hs_header_add_wrapper border_icon hidden-sm hidden-xs"
+              >
+                <div class="hs_header_add_icon">
+                  <i class="fa fa-envelope"></i>
+                </div>
+                <div class="hs_header_add_icon_cont">
+                  <a
+                    class="main-nav-one__infos-email"
+                    href="mailto:{{ contact_details.email }}"
+                    >{{ contact_details.address }}</a
+                  >
+                </div>
+              </div>
+              <div class="hs_header_add_wrapper">
+                <div class="hs_header_add_icon last">
+                  <i class="fa fa-phone"></i>
+                </div>
+                <div class="hs_header_add_icon_cont">
+                  <a class="main-nav-one__infos-phone" href="tel:++1800-123-123"
+                    >{{contact_details.phone}}</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="header-right">
+              <div class="social-icons">
+                <a href="{{contact_details.facebook}}" target="_blank"
+                  ><i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="{{contact_details.instagram}}" target="_blank"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a
+                  href="https://api.whatsapp.com/send?phone={{ contact_details.whatsapp|slice:"1:"}}"
+                  target="_blank"
+                  ><i class="fab fa-whatsapp" aria-hidden="true"></i
+                ></a>
+                <a href="{{contact_details.youtube}}" target="_blank"
+                  ><i class="fa-brands fa-youtube"></i
+                ></a>
+                <a href="{{contact_details.linkedin}}" target="_blank"
+                  ><i class="fa-brands fa-linkedin-in"></i
+                ></a>
+                <a href="{{contact_details.tiktok}}" target="_blank"
+                  ><i class="fa-brands fa-tiktok"></i
+                ></a>
+                <a href="{{contact_details.twitter}}" target="_blank"
+                  ><i class="fa-brands fa-twitter"></i
+                ></a>
+              </div>
+              <div class="language_currency">
+                <ul>
+                  <li class="language">
+                    <a href="#"> Az <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown_language">
+                      <li><a href="#">En</a></li>
+                      <li><a href="#">Ru</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            {%endif%}
+          </div>
+        </div>
+      </div>
+      <!-- hs Navigation End -->
+      <!-- hs top header Start -->
+      <div class="hs_header_Wrapper hidden-sm hidden-xs">
+        <!-- hs top header Start -->
+        <div class="hs_top_header_main_Wrapper">
+          <div class="container">
+            <div class="hs_header_logo_left">
+              <div class="hs_logo_wrapper">
+                <a href="index.html"
+                  ><img
+                    src={% static "images/header/metafizik-logo.png"%}
+                    class="img-responsive"
+                    alt="logo"
+                    title="Logo"
+                /></a>
+              </div>
+            </div>
+            <div class="hs_header_logo_right">
+              <nav class="hs_main_menu">
+                <ul>
+                  <li class="dropdown menu-button">
+                    <a class="menu-button" href={% url "main-page"%}>Ana Səhifə</a>
+                  </li>
+                  <li>
+                    <a class="menu-button" href={% url "about-page"%}>Haqqımızda</a>
+                  </li>
+                  <li>
+                    <a class="menu-button" href={% url "shop-page"%}>Məhsullar</a>
+                  </li>
+                  <li class="dropdown menu-button">
+                    <a class="menu-button" href={% url "services-page"%}>Xidmətlər</a>
+                    <ul class="dropdown-menu hs_mega_menu">
+                      <li>
+                        <a class="menu-button" href="service-details.html"
+                          >Aries</a
+                        >
+                      </li>
+                      <li>
+                        <a class="menu-button" href="service-details.html"
+                          >Chinese</a
+                        >
+                      </li>
+
+                      <li>
+                        <a class="menu-button" href="service-details.html"
+                          >Chinese-Single</a
+                        >
+                      </li>
+                      <li>
+                        <a class="menu-button" href="service-details.html"
+                          >Crystal</a
+                        >
+                      </li>
+                      <li>
+                        <a class="menu-button" href="service-details.html"
+                          >Kundli-Dosh</a
+                        >
+                      </li>
+                      <li>
+                        <a class="menu-button" href="service-details.html"
+                          >Numerology</a
+                        >
+                      </li>
+                      <li>
+                        <a class="menu-button" href="service-details.html"
+                          >Palm</a
+                        >
+                      </li>
+                      <li>
+                        <a class="menu-button" href="service-details.html"
+                          >Tarot</a
+                        >
+                      </li>
+                      <li>
+                        <a class="menu-button" href="service-details.html"
+                          >Tarot-Single</a
+                        >
+                      </li>
+                      <li>
+                        <a class="menu-button" href="service-details.html"
+                          >Vastu-Shastra</a
+                        >
+                      </li>
+                      <li>
+                        <a class="menu-button" href="service-details.html"
+                          >Chinese</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <a class="menu-button" href={% url "articles-page"%}>Məqalə </a>
+                  </li>
+                  <li class="dropdown menu-button">
+                    <a class="menu-button" href={% url "videos-page"%}>video </a>
+                  </li>
+                  <li class="dropdown menu-button">
+                    <a class="menu-button" href={% url "blogs-page"%}>Bloq </a>
+                  </li>
+                </ul>
+              </nav>
+              <div class="hs_btn_wrapper">
+                <ul>
+                  <li>
+                    <a href={% url "contact-page"%} class="hs_btn_hover">əlaqə</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- hs top header End -->
+      </div>
+      <header class="mobail_menu visible-sm visible-xs">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-6 col-sm-6">
+              <div class="hs_logo">
+                <a href="index.html"
+                  ><img
+                    src="images/header/metafizik-logo.png"
+                    alt="Logo"
+                    title="Logo"
+                /></a>
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-6">
+              <div class="cd-dropdown-wrapper">
+                <a class="house_toggle" href="#0">
+                  <svg
+                    version="1.1"
+                    id="Capa_1"
+                    xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px"
+                    y="0px"
+                    width="511.63px"
+                    height="511.631px"
+                    viewBox="0 0 511.63 511.631"
+                    style="enable-background: new 0 0 511.63 511.631"
+                    xml:space="preserve"
+                  >
+                    <g>
+                      <g>
+                        <path
+                          d="M493.356,274.088H18.274c-4.952,0-9.233,1.811-12.851,5.428C1.809,283.129,0,287.417,0,292.362v36.545
+											c0,4.948,1.809,9.236,5.424,12.847c3.621,3.617,7.904,5.432,12.851,5.432h475.082c4.944,0,9.232-1.814,12.85-5.432
+											c3.614-3.61,5.425-7.898,5.425-12.847v-36.545c0-4.945-1.811-9.233-5.425-12.847C502.588,275.895,498.3,274.088,493.356,274.088z"
+                        />
+                        <path
+                          d="M493.356,383.721H18.274c-4.952,0-9.233,1.81-12.851,5.427C1.809,392.762,0,397.046,0,401.994v36.546
+											c0,4.948,1.809,9.232,5.424,12.854c3.621,3.61,7.904,5.421,12.851,5.421h475.082c4.944,0,9.232-1.811,12.85-5.421
+											c3.614-3.621,5.425-7.905,5.425-12.854v-36.546c0-4.948-1.811-9.232-5.425-12.847C502.588,385.53,498.3,383.721,493.356,383.721z"
+                        />
+                        <path
+                          d="M506.206,60.241c-3.617-3.612-7.905-5.424-12.85-5.424H18.274c-4.952,0-9.233,1.812-12.851,5.424
+											C1.809,63.858,0,68.143,0,73.091v36.547c0,4.948,1.809,9.229,5.424,12.847c3.621,3.616,7.904,5.424,12.851,5.424h475.082
+											c4.944,0,9.232-1.809,12.85-5.424c3.614-3.617,5.425-7.898,5.425-12.847V73.091C511.63,68.143,509.82,63.861,506.206,60.241z"
+                        />
+                        <path
+                          d="M493.356,164.456H18.274c-4.952,0-9.233,1.807-12.851,5.424C1.809,173.495,0,177.778,0,182.727v36.547
+											c0,4.947,1.809,9.233,5.424,12.845c3.621,3.617,7.904,5.429,12.851,5.429h475.082c4.944,0,9.232-1.812,12.85-5.429
+											c3.614-3.612,5.425-7.898,5.425-12.845v-36.547c0-4.952-1.811-9.231-5.425-12.847C502.588,166.263,498.3,164.456,493.356,164.456z"
+                        />
+                      </g>
+                    </g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                    <g></g>
+                  </svg>
+                </a>
+                <nav class="cd-dropdown">
+                  <a href="index.html"
+                    ><img src="images/header/metafizik-logo.png" alt=""
+                  /></a>
+                  <a href="#0" class="cd-close">Close</a>
+                  <ul class="cd-dropdown-content">
+                    <li>
+                      <a href={% url "main-page"%}>Ana Səhifə</a>
+                    </li>
+                    <li>
+                      <a href={% url "about-page"%}>Haqqımızda</a>
+                    </li>
+                    <li class="has-children">
+                      <a href={% url "services-page"%}>Xidmətlər</a>
+                      <ul class="cd-secondary-dropdown is-hidden">
+                        <li class="go-back">
+                          <a href="service-details.html">Menu</a>
+                        </li>
+                        <li>
+                          <a href="service-details.html">Aries</a>
+                        </li>
+                        <!-- .has-children -->
+                        <li>
+                          <a href="service-details.html">Chinese</a>
+                        </li>
+                        <!-- .has-children -->
+                        <li>
+                          <a href="service-details.html">Chinese-Single</a>
+                        </li>
+                        <!-- .has-children -->
+                        <li>
+                          <a href="service-details.html">Crystal</a>
+                        </li>
+                        <!-- .has-children -->
+                        <li>
+                          <a href="service-details.html">Kundli-Dosh</a>
+                        </li>
+                        <!-- .has-children -->
+                        <li>
+                          <a href="service-details.html">Numerology</a>
+                        </li>
+                        <!-- .has-children -->
+                        <li>
+                          <a href="service-details.html">Palm</a>
+                        </li>
+                        <!-- .has-children -->
+                        <li>
+                          <a href="service-details.html">Tarot</a>
+                        </li>
+                        <!-- .has-children -->
+                        <li>
+                          <a href="service-details.html">Tarot-Single</a>
+                        </li>
+                        <!-- .has-children -->
+                        <li>
+                          <a href="service-details.html">Vastu-Shastra</a>
+                        </li>
+                        <!-- .has-children -->
+                      </ul>
+                      <!-- .cd-secondary-dropdown -->
+                    </li>
+                    <!-- .has-children -->
+                    <li>
+                      <a href={% url "articles-page"%}>Məqalə</a>
+                    </li>
+                    <li>
+                      <a href={% url "videos-page"%}>Video</a>
+                    </li>
+                    <li>
+                      <a href={% url "blogs-page"%} class="hs_btn_hover">Bloq</a>
+                    </li>
+                    <li>
+                      <a href={% url "contact-page"%}>Contact</a>
+                    </li>
+                    <div class="social-icons">
+                      <a href="https://www.facebook.com/" target="_blank"
+                        ><i class="fa-brands fa-facebook-f"></i>
+                      </a>
+                      <a href="https://www.instagram.com/" target="_blank"
+                        ><i class="fa-brands fa-instagram"></i
+                      ></a>
+                      <a
+                        href="https://api.whatsapp.com/send?phone=994556788974"
+                        target="_blank"
+                        ><i class="fab fa-whatsapp" aria-hidden="true"></i
+                      ></a>
+                      <a href="https://www.youtube.com/" target="_blank"
+                        ><i class="fa-brands fa-youtube"></i
+                      ></a>
+                      <a href="https://www.linkedin.com/" target="_blank"
+                        ><i class="fa-brands fa-linkedin-in"></i
+                      ></a>
+                      <a href="https://www.tiktok.com/" target="_blank"
+                        ><i class="fa-brands fa-tiktok"></i
+                      ></a>
+                      <a href="https://twitter.com/i/flow/login" target="_blank"
+                        ><i class="fa-brands fa-twitter"></i
+                      ></a>
+                    </div>
+                  </ul>
+                  <!-- .cd-dropdown-content -->
+                </nav>
+                <!-- .cd-dropdown -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- .cd-dropdown-wrapper -->
+      </header>
+    </div>
+    <!-- main_header_wrapper end -->
+    {% block body %}{% endblock body %}
+    <!-- hs footer wrapper Start -->
+    <div class="hs_footer_main_wrapper v-2_footer">
+      <!-- hs footer wrapper Start -->
+      <div class="hs_footer_top_wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 meta-col-6">
+              <div class="hs_footer_logo_wrapper">
+                <img
+                  src="{% static 'images/header/metafizik-logo.png' %}"
+                  alt="footer_logo"
+                  class="img-responsive"
+                />
+                <p>
+                  Donec id elit non mi porta gravida at eget metus. Donec id
+                  elit non Vestibulum id ligula porta felis euism od semper.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-2 col-md-3 meta-col-6">
+              <div class="hs_footer_list_wrapper">
+                <h2>keçidlər</h2>
+                <ul class="hs_footer_list">
+                  <li>
+                    <a href={% url "main-page"%}
+                      ><i class="fa fa-caret-right" aria-hidden="true"></i>Ana
+                      Səhifə</a
+                    >
+                  </li>
+                  <li>
+                    <a href={% url "about-page"%}
+                      ><i class="fa fa-caret-right" aria-hidden="true"></i>
+                      Haqqımızda
+                    </a>
+                  </li>
+                  <li>
+                    <a href={% url "services-page"%}
+                      ><i class="fa fa-caret-right" aria-hidden="true"></i>
+                      Xidmətlər
+                    </a>
+                  </li>
+                  <li>
+                    <a href={% url "articles-page"%}
+                      ><i class="fa fa-caret-right" aria-hidden="true"></i>
+                      Məqalə</a
+                    >
+                  </li>
+                  <li>
+                    <a href={% url "videos-page"%}
+                      ><i class="fa fa-caret-right" aria-hidden="true"></i>
+                      video
+                    </a>
+                  </li>
+                  <li>
+                    <a href={% url "blogs-page"%}
+                      ><i class="fa fa-caret-right" aria-hidden="true"></i>bloq
+                    </a>
+                  </li>
+                  <li>
+                    <a href={% url "contact-page"%}
+                      ><i class="fa fa-caret-right" aria-hidden="true"></i>əlaqə
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 meta-col-6">
+              <div class="hs_footer_list_wrapper">
+                <h2>Xidmətlər</h2>
+                <ul class="hs_footer_list">
+                  <li>
+                    <a href="#"
+                      ><i class="fa fa-caret-right" aria-hidden="true"></i> How
+                      to book</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa fa-caret-right" aria-hidden="true"></i>
+                      General letting conditions
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa fa-caret-right" aria-hidden="true"></i> Jobs
+                      and careers
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa fa-caret-right" aria-hidden="true"></i>
+                      Travel agent resources</a
+                    >
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa fa-caret-right" aria-hidden="true"></i>Our
+                      Agents
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa fa-caret-right" aria-hidden="true"></i>About
+                      Us
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><i class="fa fa-caret-right" aria-hidden="true"></i
+                      >Contact Us
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-3 meta-col-6">
+              <div class="hs_download_wrapper">
+                <h2>Bizimlə əlaqə</h2>
+                <form method="post">
+                  {% csrf_token %}
+                  <input type="text" placeholder="Email daxil edin" />
+                  <button type="submit">Göndər</button>
+                </form>
+              </div>
+              <div class="footer_contact">
+                <ul>
+                  <li>
+                    <div class="footer-item">
+                      <i class="fa-solid fa-location-dot"></i>
+                      <div class="footer_contact_w">
+                        <span>Addresss:</span>
+                        <a href="#">{{contact_details.address}}</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="footer-item">
+                      <i class="fa-solid fa-phone"></i>
+                      <div class="footer_contact_w">
+                        <span>Phone:</span>
+                        <a href="tel:{{contact_details.phone}}">{{contact_details.phone}}</a>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="footer-item">
+                      <i class="fa-solid fa-envelope"></i>
+                      <div class="footer_contact_w">
+                        <span>Email:</span>
+                        <a href="mailto:{{contact_details.email}}"> {{contact_details.email}}</a>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- hs footer wrapper End -->
+    <!-- hs bottom footer wrapper Start -->
+    <div class="hs_bottom_footer_main_wrapper">
+      <a href="javascript:" id="return-to-top"
+        ><i class="fa fa-angle-up"></i
+      ></a>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="footer_bottom_cont_wrapper">
+              <p>
+                Copyright © 2024
+                <a href="https://khanbutagroup.az/" target="_blank">
+                  khan buta group
+                </a>
+                All Right Reserved.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- hs bottom footer wrapper End -->
+    <!--main js file start-->
+    <script src={% static "js/jquery_min.js"%}></script>
+    <script src={% static "js/bootstrap.min.js"%}></script>
+    <script src={% static "js/modernizr.js"%}></script>
+    <script src={% static "js/jquery.menu-aim.js"%}></script>
+    <script src={% static "js/parallax.min.js"%}></script>
+    <script src={% static "js/owl.carousel.js"%}></script>
+    <script src={% static "js/jquery.shuffle.min.js"%}></script>
+    <script src={% static "js/jquery.countTo.js"%}></script>
+    <script src={% static "js/jquery.inview.min.js"%}></script>
+    <script src={% static "js/jquery.magnific-popup.js"%}></script>
+    <script src={% static "js/datepicker.js"%}></script>
+    <script src={% static "js/custom.js"%}></script>
+    <script src={% static "js/jquery.mask.min.js"%}></script>
+    <script src={% static "js/jquery.fancybox.min.js"%}></script>
+    <!--main js file end-->
+  </body>
+</html>

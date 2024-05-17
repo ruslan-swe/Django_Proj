@@ -1,0 +1,112 @@
+{% extends "base.html" %} {% block title %}Əlaqə{% endblock title %} {% block body %}
+<!-- hs About Title Start -->
+<div class="hs_indx_title_main_wrapper">
+  <div class="hs_title_img_overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 full_width">
+        <div class="hs_indx_title_left_wrapper">
+          <h2>Əlaqə</h2>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 full_width">
+        <div class="hs_indx_title_right_wrapper">
+          <ul>
+            <li><a href="index.html">Ana Səhifə</a> &nbsp;&nbsp;&nbsp;></li>
+            <li>Əlaqə</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- hs About Title End -->
+<!-- hs contact us Title Start -->
+<div class="contact-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="contact-form">
+          <form
+            action="{% url 'contact-page' %}"
+            method="post"
+            class="contact-form-wrapper form-style"
+            id="contact-form"
+          >
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="section-title">
+                  <h2 class="title">Bizimlə Əlaqə</h2>
+                </div>
+              </div>
+              {% for field in form %}
+              <div class="col-md-12">
+                <div class="form-group">
+                  {{field.label_tag}} {{field}} {{field.errors}}
+                </div>
+              </div>
+              {% endfor %}
+              <div class="col-md-12">
+                <div class="form-group mb-0">
+                  <button class="btn btn-theme btn-black" type="submit">
+                    Göndər
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="contact_message content">
+          <p>
+            Claritas est etiam processus dynamicus, qui sequitur mutationem
+            consuetudium lectorum. Mirum est notare quam littera gothica, quam
+            nunc putamus parum claram anteposuerit litterarum formas human. qui
+            sequitur mutationem consuetudium lectorum. Mirum est notare
+          </p>
+          <ul>
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <a href=""
+                >Address : 512 - Omexcity, Kaliforniya Kaliforniya, Omexcity</a
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <a href="tel:0(1234) 567 890">Phone : +994 55 240 53 50</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <a href="mailto:infohelp@example.com"
+                >Email : support@example.com
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- hs contact us Title End -->
+<!--contact map start-->
+<div class="contact_map mt-20">
+  <div class="row">
+    <div class="col-12">
+      <div class="map-area">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12151.14931395558!2d49.8599193!3d40.4135619!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403087ff1426fc37%3A0x539afc2ff8cf9039!2sClassi!5e0!3m2!1sru!2saz!4v1710416543793!5m2!1sru!2saz"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</div>
+<!--contact map end-->
+{% endblock body %}
